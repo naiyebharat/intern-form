@@ -64,7 +64,9 @@ export default function Home() {
 
   return (
     <div className="min-h-screen" style={{ background: "#FAFAFF" }}>
-      <Navbar onApplyClick={() => goToForm()} currentScreen={screen} />
+      {screen === "welcome" && (
+        <Navbar onApplyClick={() => goToForm()} currentScreen={screen} />
+      )}
 
       <AnimatePresence mode="wait">
         {screen === "welcome" && (

@@ -137,7 +137,7 @@ export default function ApplicationForm({ selectedRole, onSuccess, onBack }) {
   });
 
   return (
-    <main className="relative min-h-screen pt-20 pb-16 px-4 sm:px-6" style={{ background: "#FAFAFF" }}>
+    <main className="relative min-h-screen pt-8 sm:pt-12 pb-16 px-4 sm:px-6" style={{ background: "#FAFAFF" }}>
       {/* Background blobs */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none z-0" aria-hidden="true">
         <div className="animate-blob absolute -top-32 -right-32 w-80 h-80 rounded-full opacity-15"
@@ -147,17 +147,33 @@ export default function ApplicationForm({ selectedRole, onSuccess, onBack }) {
       </div>
 
       <div className="relative z-10 w-[92%] max-w-5xl mx-auto">
-        {/* Back button */}
-        <motion.button
-          onClick={onBack}
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          whileHover={{ x: -3 }}
-          className="flex items-center gap-2 text-slate-500 hover:text-violet-600 font-medium text-sm mb-8 transition-colors"
-          aria-label="Back to home"
-        >
-          <ArrowLeft className="w-4 h-4" /> Back to Home
-        </motion.button>
+        {/* Top Navigation Row: Styled Back to Home Button & Program Badge */}
+        <div className="flex items-center justify-between gap-4 mb-6 sm:mb-8">
+          <motion.button
+            onClick={onBack}
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            whileHover={{ scale: 1.02, x: -3 }}
+            whileTap={{ scale: 0.97 }}
+            className="inline-flex items-center gap-2.5 px-4 sm:px-5 py-2.5 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:shadow-md hover:border-violet-300 hover:bg-violet-50/70 text-slate-700 hover:text-violet-700 font-bold text-sm transition-all cursor-pointer group"
+            aria-label="Back to home"
+          >
+            <div className="w-7 h-7 rounded-xl bg-violet-100 text-violet-600 flex items-center justify-center transition-colors group-hover:bg-violet-600 group-hover:text-white">
+              <ArrowLeft className="w-4 h-4" />
+            </div>
+            <span>Back to Home</span>
+          </motion.button>
+
+          {/* Program Pill */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-2xl bg-white/80 border border-slate-200/80 text-xs font-bold text-slate-600 shadow-sm"
+          >
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            <span>Naiye Bharat · Batch 2026</span>
+          </motion.div>
+        </div>
 
         {/* Card */}
         <motion.div
