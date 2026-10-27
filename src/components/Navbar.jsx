@@ -57,6 +57,7 @@ export default function Navbar({ onApplyClick, currentScreen }) {
             </div>
           </motion.div>
 
+
           {/* Right side */}
           <div className="flex items-center gap-3">
             {currentScreen !== "welcome" && (
